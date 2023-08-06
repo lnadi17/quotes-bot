@@ -19,7 +19,7 @@ router.post('/', async function (req, res, next) {
             },
         });
     } else if (data.name === 'speak') {
-        await axios.post(postUrl, {
+        res.send({
             type: InteractionResponseType.DEFERRED_CHANNEL_MESSAGE_WITH_SOURCE,
         });
 
@@ -40,7 +40,6 @@ router.post('/', async function (req, res, next) {
                 axios.patch(patchUrl, response);
             })
             .catch(error => {
-                console.log("Error:", error);
                 const response = {
                     content: "Sorry, I am feeling out of sorts, try again later..."
                 };
