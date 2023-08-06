@@ -14,17 +14,16 @@ router.post('/', async function (req, res, next) {
                 content: 'Pong!',
             },
         });
-    }
-
-    if (data.name === 'speak') {
+    } else if (data.name === 'speak') {
         fetch(endpoint)
             .then(response => {
-                return response.text();
+                return response.json();
             })
             .then(data => {
-                const object = JSON.parse(data);
-                const author = object.author;
-                const quote = object.quote;
+                const author = data.author;
+                // Use regex to remove non-alphanumeric and punctuation characters
+                const regexPattern = /[^a-zA-Z0-9\s!"\/%'()*+,-.:;<=>?[\\\]^_`{|}~]/g
+                const quote = data.quote.replace(regexPattern, '');
                 res.send({
                     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
                     data: {
@@ -38,8 +37,21 @@ router.post('/', async function (req, res, next) {
                 });
             })
             .catch(error => {
-                console.log("error", error);
+                console.log("Error:", error)
+                res.send({
+                    type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+                    data: {
+                        content: "Sorry, I am feeling out of sorts, try again later..."
+                    }
+                });
             });
+    } else {
+        res.send({
+            type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+            data: {
+                content: "Such command does not exist... Or maybe it does?"
+            }
+        });
     }
 });
 

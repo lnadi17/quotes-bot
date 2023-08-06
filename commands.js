@@ -3,8 +3,8 @@ import {GetGlobalCommands, InstallGlobalCommands} from './utils.js';
 
 // Simple test command
 const TEST_COMMAND = {
-    name: 'test',
-    description: 'Basic command',
+    name: 'ping',
+    description: 'I will reply "Pong!"',
     type: 1,
 };
 
