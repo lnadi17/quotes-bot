@@ -5,9 +5,11 @@
   "scripts": {
     "start": "node ./bin/www",
     "register": "node commands.js",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "test": "jest"
   },
   "dependencies": {
+    "axios": "^1.4.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "discord-interactions": "^3.4.0",
@@ -15,6 +17,7 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.3",
     "dotenv": "^16.3.1",
     "jest": "^29.6.2",
     "nodemon": "^3.0.1"
