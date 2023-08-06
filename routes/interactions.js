@@ -9,7 +9,6 @@ router.post('/', async function (req, res, next) {
     const data = req.body.data;
     const token = req.body.token;
     const patchUrl = `https://discord.com/api/v10/webhooks/${process.env.APP_ID}/${token}/messages/@original`;
-    const postUrl = `https://discord.com/api/v10/interactions/${req.body.id}/${token}/callback`;
 
     if (data.name === 'ping') {
         res.send({
