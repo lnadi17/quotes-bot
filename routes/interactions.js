@@ -12,7 +12,7 @@ router.post('/', async function (req, res, next) {
 
     if (data.name === 'ping') {
         res.send({
-            type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+            type: InteractionResponseType.PONG,
             data: {
                 content: 'Pong!',
             },
