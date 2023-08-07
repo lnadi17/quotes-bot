@@ -6,7 +6,7 @@ const axios = require('axios');
 const endpoint = "https://api.themotivate365.com/stoic-quote"
 
 function filterQuote(quote) {
-    const regexPattern = /[^a-zA-Z0-9\s!"\/%'()*+,-.:;<=>?[\\\]^_`{|}~]/g
+    const regexPattern = /[^a-zA-Z0-9\s!"\/%'()*+,-.:;<=>?[\]^_`{|}~]/g
     return quote.replace(regexPattern, '');
 }
 
@@ -58,4 +58,7 @@ router.post('/', async function (req, res, next) {
     }
 });
 
-module.exports = router;
+module.exports = {
+    router,
+    filterQuote
+};
