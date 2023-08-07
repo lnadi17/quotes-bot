@@ -1,4 +1,4 @@
-const {InteractionResponseType} = require("discord-interactions");
+const {InteractionResponseType, InteractionType} = require("discord-interactions");
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
@@ -15,9 +15,13 @@ router.post('/', async function (req, res, next) {
     const token = req.body.token;
     const patchUrl = `https://discord.com/api/v10/webhooks/${process.env.APP_ID}/${token}/messages/@original`;
 
-    if (data.name === 'ping') {
+    if (req.body.type === InteractionType.PING) {
         res.send({
             type: InteractionResponseType.PONG,
+        });
+    } else if (data.name === 'ping') {
+        res.send({
+            type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
             data: {
                 content: 'Pong!',
             },

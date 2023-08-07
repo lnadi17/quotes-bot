@@ -2,13 +2,13 @@ require('dotenv').config()
 const express = require('express');
 const logger = require('morgan');
 
-const {router} = require('./routes/interactions.js');
+const {router: interactionsRouter} = require('./routes/interactions.js');
 const {verifyKeyMiddleware} = require("discord-interactions");
 
 const app = express();
 
 app.use(logger('dev'));
-app.use('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), router);
+app.use('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), interactionsRouter);
 
 process.on('unhandledRejection', (reason, promise) => {
     throw reason;
