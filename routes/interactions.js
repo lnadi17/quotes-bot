@@ -5,6 +5,11 @@ const axios = require('axios');
 
 const endpoint = "https://api.themotivate365.com/stoic-quote"
 
+function filterQuote(quote) {
+    const regexPattern = /[^a-zA-Z0-9\s!"\/%'()*+,-.:;<=>?[\\\]^_`{|}~]/g
+    return quote.replace(regexPattern, '');
+}
+
 router.post('/', async function (req, res, next) {
     const data = req.body.data;
     const token = req.body.token;
@@ -26,8 +31,7 @@ router.post('/', async function (req, res, next) {
             .then(result => {
                 const author = result.data.author;
                 // Use regex to remove non-alphanumeric and punctuation characters
-                const regexPattern = /[^a-zA-Z0-9\s!"\/%'()*+,-.:;<=>?[\\\]^_`{|}~]/g
-                const quote = result.data.quote.replace(regexPattern, '');
+                const quote = filterQuote(result.data.quote);
                 const response = {
                     embeds: [{
                         author: {

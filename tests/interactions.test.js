@@ -13,7 +13,8 @@ verifyKeyMiddleware.mockImplementation((publicKey) => {
 const app = require('../app');
 
 describe('POST /interactions', () => {
-    const patchMock = jest.spyOn(axios, 'patch').mockImplementation(() => {});
+    const patchMock = jest.spyOn(axios, 'patch').mockImplementation(() => {
+    });
 
     it('responds with "Pong!" when given a "ping" command', async () => {
         const response = await request(app)
