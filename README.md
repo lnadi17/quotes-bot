@@ -2,13 +2,12 @@
 
 <img width="400" alt="Screenshot 2023-08-11 at 00 52 51" src="https://github.com/lnadi17/stoic-bot/assets/19193250/b66252ba-5412-422a-863d-f78418704073">
 
-This project is a discord bot that, when added to your server, provides stoic quotes. 
+This project is a discord bot that, when added to your server, provides various stoic quotes. 
 It has a command `/speak`, which lets you interact with the bot and receive insightful quotes. 
-It uses [public API](https://api.themotivate365.com/stoic-quote) that provides stoic quotes. 
-I found it on [Public APIs on GitHub](https://github.com/public-apis/public-apis). 
-Project uses Discord API directly, both [HTTP API](https://discord.com/developers/docs/reference#http-api) 
+It uses [public API](https://api.themotivate365.com/stoic-quote), sourced from [Public APIs on GitHub](https://github.com/public-apis/public-apis), to provide stoic quotes. 
+Project interfaces with Discord API directly, both [HTTP API](https://discord.com/developers/docs/reference#http-api) 
 and [Gateway API](https://discord.com/developers/docs/reference#http-api). 
-More usage and implementation details are described below.
+More details about usage and implementation are provided below.
 
 ## Installation
 
