@@ -29,6 +29,25 @@ If you want to automatically rerun the server after changing the code, use `npm 
 
 - Tests are written in Jest and run using GitHub Actions on push and pull requests.
 - You can also run tests locally using `npm test`.
+- `supertest` package is used for testing HTTP endpoints.
 - Project is configured as module so I had to use `babel-jest` to convert tested files to CJS.
 - Existence of `process.env.JEST_WORKER_ID` is checked in application code to detect if the test is running.
 
+## Implementation Details
+
+- `commands.js` file describes slash commands and when run as a script it registers them.
+- Slash command interactions are handled by `routes/interactions.js` route file. 
+- Gateway API is handled by `gatewayClient.js` file. Bot only updates its presence and then maintains the connection.
+- `app.js` is the main entry point for the app.
+
+## Dependencies
+
+The bot relies on the following external libraries and tools:
+- `ws`: Used in `gatewayClient.js` to establish a WebSocket connection to the Discord Gateway API.
+- `express`: Powers the HTTP server that handles slash command interactions.
+- `axios`: Enables HTTP requests for fetching stoic quotes and interacting with APIs.
+- `discord-interactions`: Facilitates interaction with the Discord API, specifically slash commands.
+
+## License
+
+This project is licensed under the MIT License, allowing you to use, modify, and distribute the code as needed. See the [LICENSE](LICENSE) file for more details.
