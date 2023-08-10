@@ -1,5 +1,7 @@
 # Stoic Bot
 
+<img width="400" alt="Screenshot 2023-08-11 at 00 52 51" src="https://github.com/lnadi17/stoic-bot/assets/19193250/b66252ba-5412-422a-863d-f78418704073">
+
 This project is a discord bot that, when added to your server, provides stoic quotes. 
 It has a command `/speak`, which lets you interact with the bot and receive insightful quotes. 
 It uses [public API](https://api.themotivate365.com/stoic-quote) that provides stoic quotes. 
@@ -14,7 +16,7 @@ This bot is not in production at the time. If you want to create your own bot wi
 you can follow these steps:
 
 1. Create new application from the [Discord Developer Portal](https://discord.com/developers/applications).
-2. Configure bot permissions. Mine uses four permissions: `Send Messages, Embed Links, Read Message History, Mention Everyone`.
+2. Configure bot permissions. Mine uses four permissions: `Send Messages`, `Embed Links`, `Read Message History`, `Mention Everyone`.
 3. Generate OAuth2 URL with the bot permissions above and `applications.commands` scope. This URL will allow you to invite the bot to your server.
 4. Clone this repository and navigate to it.
 5. Create `.env` file and put `APPLICATION_ID`, `PUBLIC_KEY` and `DISCORD_TOKEN` variables in it. These values can be found on your general information page of Discord Developer Portal.
