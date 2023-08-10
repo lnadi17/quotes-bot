@@ -7,7 +7,7 @@
     "start": "node bin/www.js",
     "register": "node commands.js",
     "dev": "nodemon bin/www.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^1.4.0",
