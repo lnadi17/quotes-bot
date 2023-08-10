@@ -1,6 +1,6 @@
 # Stoic Bot
 
-<img width="400" alt="Screenshot 2023-08-11 at 00 52 51" src="https://github.com/lnadi17/stoic-bot/assets/19193250/b66252ba-5412-422a-863d-f78418704073">
+<img width="500" alt="Screenshot 2023-08-11 at 00 52 51" src="https://github.com/lnadi17/stoic-bot/assets/19193250/b66252ba-5412-422a-863d-f78418704073">
 
 This project is a discord bot that, when added to your server, provides various stoic quotes. 
 It has a command `/speak`, which lets you interact with the bot and receive insightful quotes. 
