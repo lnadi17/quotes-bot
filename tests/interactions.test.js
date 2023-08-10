@@ -10,11 +10,7 @@ verifyKeyMiddleware.mockImplementation((publicKey) => {
     return bodyParser.json()
 });
 
-const app = require('../bin/www.js');
-
-afterAll(() => {
-    app.close();
-});
+const app = require('../app.js').default;
 
 describe('POST /interactions', () => {
     const patchMock = jest.spyOn(axios, 'patch').mockImplementation(() => {
