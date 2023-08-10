@@ -24,7 +24,7 @@ export async function updatePresence(keepAlive = false, listeningToActivity = "M
         const client = new WebSocket(url);
 
         client.on('open', () => {
-            console.log("opened");
+            console.log("Opened");
         })
 
         client.on('message', (data) => {
@@ -35,6 +35,7 @@ export async function updatePresence(keepAlive = false, listeningToActivity = "M
                 lastSequenceNumber = data.s;
                 const waitTime = heartbeatInterval * Math.random();
                 // Send first heartbeat
+                console.log("Setting first heartbeat in", (waitTime / 1000));
                 setTimeout(() => {
                     client.send(JSON.stringify({
                         op: 1,
