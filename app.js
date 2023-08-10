@@ -1,11 +1,16 @@
-require('dotenv').config()
-const express = require('express');
-const logger = require('morgan');
+import dotenv from 'dotenv';
 
-const {router: interactionsRouter} = require('./routes/interactions.js');
-const {verifyKeyMiddleware} = require("discord-interactions");
+dotenv.config();
+
+import express from 'express';
+import logger from 'morgan';
+import {verifyKeyMiddleware} from 'discord-interactions';
+
+import {router as interactionsRouter} from './routes/interactions.js';
+import {updatePresence} from './gatewayClient.js';
 
 const app = express();
+await updatePresence(true, 'Meditations');
 
 app.use(logger('dev'));
 app.use('/interactions', verifyKeyMiddleware(process.env.PUBLIC_KEY), interactionsRouter);
@@ -19,4 +24,4 @@ process.on('uncaughtException', (error) => {
     process.exit(1);
 });
 
-module.exports = app;
+export default app;

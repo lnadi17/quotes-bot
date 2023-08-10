@@ -1,11 +1,12 @@
-const {InteractionResponseType, InteractionType} = require("discord-interactions");
-const express = require('express');
-const router = express.Router();
-const axios = require('axios');
+import {InteractionResponseType, InteractionType} from "discord-interactions";
+import express from 'express';
+import axios from 'axios';
+
+export const router = express.Router();
 
 const endpoint = "https://api.themotivate365.com/stoic-quote"
 
-function filterQuote(quote) {
+export function filterQuote(quote) {
     const regexPattern = /[^a-zA-Z0-9\s!"\/%'()*+,-.:;<=>?[\]^_`{|}~]/g
     return quote.replace(regexPattern, '');
 }
@@ -61,8 +62,3 @@ router.post('/', async function (req, res, next) {
         });
     }
 });
-
-module.exports = {
-    router,
-    filterQuote
-};
